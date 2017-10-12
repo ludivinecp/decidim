@@ -55,6 +55,9 @@ COPY decidim-surveys/lib/decidim/surveys/version.rb /tmp/decidim-surveys/lib/dec
 COPY decidim-accountability/decidim-accountability.gemspec /tmp/decidim-accountability/decidim-accountability.gemspec
 COPY decidim-accountability/lib/decidim/accountability/version.rb /tmp/decidim-accountability/lib/decidim/accountability/version.rb
 
+ADD decidim-verifications/decidim-verifications.gemspec /tmp/decidim-verifications/decidim-verifications.gemspec
+ADD decidim-verifications/lib/decidim/verifications/version.rb /tmp/decidim-verifications/lib/decidim/verifications/version.rb
+
 RUN cd /tmp && bundle install
 
 COPY package.json /tmp/package.json
