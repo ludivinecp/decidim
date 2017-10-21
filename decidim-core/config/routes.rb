@@ -37,6 +37,8 @@ Decidim::Core::Engine.routes.draw do
         get :delete
       end
     end
+    resources :chats, only: [:index] do
+    end
     resources :notifications, only: [:index, :destroy] do
       collection do
         delete :read_all

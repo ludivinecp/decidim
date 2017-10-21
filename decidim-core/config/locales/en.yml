@@ -86,6 +86,10 @@ en:
         authorize_with: Verify with %{authorizer}
       skip_verification: You can skip this for now and %{link}
       start_exploring: start exploring
+    chats:
+      index:
+        title: Chats
+        no_chats: You have no chats yet
     core:
       actions:
         unauthorized: You are not authorized to perform this action
