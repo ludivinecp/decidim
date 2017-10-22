@@ -319,4 +319,32 @@ FactoryGirl.define do
       }
     end
   end
+
+  factory :participation, class: "Decidim::Messaging::Participation" do
+    chat { build(:chat) }
+
+    interlocutor { build(:user, :confirmed) }
+  end
+
+  factory :chat, class: "Decidim::Messaging::Chat" do
+    transient do
+      interlocutors { create_list(:user, 2, :confirmed) }
+    end
+
+    after(:create) do |chat, evaluator|
+      interlocutors = evaluator.interlocutors
+
+      interlocutors.each do |interlocutor|
+        create(:participation, interlocutor: interlocutor, chat: chat)
+      end
+
+      create(:message, chat: chat, sender: interlocutors.first)
+    end
+  end
+
+  factory :message, class: "Decidim::Messaging::Message" do
+    body "We need to open the melon"
+
+    association :sender, factory: [:user, :confirmed]
+  end
 end
