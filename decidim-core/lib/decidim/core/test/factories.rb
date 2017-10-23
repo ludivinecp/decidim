@@ -328,17 +328,19 @@ FactoryGirl.define do
 
   factory :chat, class: "Decidim::Messaging::Chat" do
     transient do
-      interlocutors { create_list(:user, 2, :confirmed) }
+      content {}
     end
 
     after(:create) do |chat, evaluator|
-      interlocutors = evaluator.interlocutors
+      content = evaluator.content
 
-      interlocutors.each do |interlocutor|
-        create(:participation, interlocutor: interlocutor, chat: chat)
+      content.each do |interlocutor, message|
+        unless chat.interlocutors.include?(interlocutor)
+          create(:participation, interlocutor: interlocutor, chat: chat)
+        end
+
+        create(:message, body: message, chat: chat, sender: interlocutor)
       end
-
-      create(:message, chat: chat, sender: interlocutors.first)
     end
   end
 

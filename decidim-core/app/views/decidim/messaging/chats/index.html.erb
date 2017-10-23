@@ -15,15 +15,23 @@
           <p><%= t(".no_chats") %></p>
         </div>
       <% else %>
-        <ul class="chats">
+        <div class="card card--list chats">
           <% Decidim::Messaging::ChatPresenter.for_collection(@chats).each do |chat| %>
-            <li>
-              <div><%= chat.interlocutors_for(current_user) %></div>
-              <div><%= truncate chat.last_message, length: 150 %>
-              <div><%= l(chat.last_update, format: :long) %>
-            </li>
+            <div class="card--list__item">
+              <div class="card--list__text">
+                <a class="card__link--block card__link--full">
+                  <h6 class="card--list__heading heading6">
+                    <%= chat.interlocutors_for(current_user) %>
+                    <small><%= simple_date(chat.last_update) %></small>
+                  </h6>
+                  <span class="text-small">
+                    <%= truncate chat.last_message, length: 150 %>
+                  </span>
+                </a>
+              </div>
+            </div>
           <% end %>
-        </ul>
+        </div>
       <% end %>
     </div>
   </div>

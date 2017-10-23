@@ -25,7 +25,12 @@ describe "Chats" do
   context "when user has chats" do
     let(:interlocutor) { create(:user) }
 
-    let!(:chat) { create(:chat, interlocutors: [user, interlocutor]) }
+    let!(:chat) do
+      create(
+        :chat,
+        content: { user => "who want's apples?", interlocutor => "me!" }
+      )
+    end
 
     before do
       within ".topbar__user__logged" do
@@ -34,10 +39,10 @@ describe "Chats" do
     end
 
     it "shows user's chat list" do
-      within "ul.chats" do
-        expect(page).to have_selector("li", text: interlocutor.name)
-        expect(page).to have_selector("li", text: interlocutor.name)
-        expect(page).to have_selector("li", text: interlocutor.name)
+      within ".chats" do
+        expect(page).to have_selector(".card--list__item", text: interlocutor.name.upcase)
+        expect(page).to have_selector(".card--list__item", text: "me!")
+        expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
       end
     end
   end

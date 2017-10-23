@@ -294,6 +294,10 @@ $datetime-bg: $primary;
   display: block;
 }
 
+.card__link--full{
+  width: 100%;
+}
+
 /* Card list */
 .card--list{
   .card--list__item:not(:last-of-type){
