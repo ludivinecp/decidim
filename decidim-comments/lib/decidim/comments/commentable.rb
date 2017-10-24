@@ -11,6 +11,17 @@ module Decidim
       included do
         has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
 
+        # Public: Max depth of a comment tree. If C is a comment and R is a reply:
+        #
+        # C          (depth 0)
+        # |--R       (depth 1)
+        # |--R       (depth 1)
+        #    |--R    (depth 2)
+        #       |--R (depth 3)
+        def max_depth
+          3
+        end
+
         # Public: Whether the object's comments are visible or not.
         def commentable?
           true

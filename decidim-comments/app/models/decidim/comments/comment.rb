@@ -10,14 +10,6 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Comments::Commentable
 
-      # Limit the max depth of a comment tree. If C is a comment and R is a reply:
-      # C          (depth 0)
-      # |--R       (depth 1)
-      # |--R       (depth 1)
-      #    |--R    (depth 2)
-      #       |--R (depth 3)
-      MAX_DEPTH = 3
-
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true
       has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_comment_id", class_name: "CommentVote", dependent: :destroy
@@ -37,7 +29,7 @@ module Decidim
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
-        depth < MAX_DEPTH
+        depth < commentable.max_depth
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`

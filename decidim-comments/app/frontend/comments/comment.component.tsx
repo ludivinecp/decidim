@@ -170,7 +170,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       );
     }
 
-    return <span>&nbsp;</span>;
+    return null;
   }
 
   /**
@@ -216,7 +216,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
       );
     }
 
-    return <span>&nbsp;</span>;
+    return null;
   }
 
   /**

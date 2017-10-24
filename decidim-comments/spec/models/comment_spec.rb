@@ -50,13 +50,13 @@ module Decidim
       end
 
       describe "#accepts_new_comments?" do
-        it "should return true if the comment's depth is below MAX_DEPTH" do
-          subject.depth = Comment::MAX_DEPTH - 1
+        it "should return true if the comment's depth is below max depth" do
+          subject.depth = commentable.max_depth - 1
           expect(subject.accepts_new_comments?).to be_truthy
         end
 
-        it "should return false if the comment's depth is equal or greater than MAX_DEPTH" do
-          subject.depth = Comment::MAX_DEPTH
+        it "should return false if the comment's depth is equal or greater than max depth" do
+          subject.depth = commentable.max_depth
           expect(subject.accepts_new_comments?).to be_falsy
         end
       end

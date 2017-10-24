@@ -9,6 +9,10 @@ module Decidim
         nil
       end
 
+      def max_depth
+        0
+      end
+
       has_many :participations, foreign_key: :decidim_chat_id, class_name: "Decidim::Messaging::Participation"
       has_many :interlocutors, through: :participations
     end
