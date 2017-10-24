@@ -339,14 +339,8 @@ FactoryGirl.define do
           create(:participation, interlocutor: interlocutor, chat: chat)
         end
 
-        create(:message, body: message, chat: chat, sender: interlocutor)
+        create(:comment, body: message, author: interlocutor, commentable: chat)
       end
     end
-  end
-
-  factory :message, class: "Decidim::Messaging::Message" do
-    body "We need to open the melon"
-
-    association :sender, factory: [:user, :confirmed]
   end
 end

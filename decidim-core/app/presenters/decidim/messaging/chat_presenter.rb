@@ -12,15 +12,15 @@ module Decidim
       end
 
       def last_message
-        return unless messages.any?
+        return unless comments.any?
 
-        messages.last.body
+        comments.last.body
       end
 
       def last_update
-        return unless messages.any?
+        return unless comments.any?
 
-        messages.last.created_at
+        comments.last.created_at
       end
     end
   end

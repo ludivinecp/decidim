@@ -3,10 +3,14 @@
 module Decidim
   module Messaging
     class Chat < ApplicationRecord
+      include Decidim::Comments::Commentable
+
+      def organization
+        nil
+      end
+
       has_many :participations, foreign_key: :decidim_chat_id, class_name: "Decidim::Messaging::Participation"
       has_many :interlocutors, through: :participations
-
-      has_many :messages, foreign_key: :decidim_chat_id, class_name: "Decidim::Messaging::Message"
     end
   end
 end

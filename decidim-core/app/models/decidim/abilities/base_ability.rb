@@ -38,7 +38,7 @@ module Decidim
         end
 
         if user
-          can :index, Decidim::Messaging::Chat, Decidim::Messaging::UserChats.new(user).query do |chat|
+          can :manage, Decidim::Messaging::Chat, Decidim::Messaging::UserChats.new(user).query do |chat|
             chat.interlocutors.include?(user)
           end
         end

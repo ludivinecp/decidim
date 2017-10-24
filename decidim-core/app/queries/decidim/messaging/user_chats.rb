@@ -17,8 +17,10 @@ module Decidim
 
       def query
         Chat
+          .joins(:comments)
           .joins(:participations)
           .where(decidim_messaging_participations: { decidim_interlocutor_id: user.id })
+          .distinct
       end
 
       private
