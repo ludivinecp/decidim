@@ -61,9 +61,23 @@ en:
       comment_thread:
         title: Conversation with %{authorName}
       comments:
-        blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones."
-        loading: Loading comments ...
-        title: "%{count} comments"
+        blocked_comments_warning: "%{comments_name} are disabled at this time, but you can read the previous %{comments_name}."
+        loading: Loading %{comments_name} ...
+        title: "%{count} %{comments_name}"
+        decidim/messaging/chat:
+          comments_name: messages
+        decidim/comments/comment:
+          comments_name: comments
+        decidim/budgets/project:
+          comments_name: comments
+        decidim/proposals/proposal:
+          comments_name: comments
+        decidim/meetings/meeting:
+          comments_name: comments
+        decidim/dummy_resources/dummy_resource:
+          comments_name: comments
+        decidim/accountability/result:
+          comments_name: comments
       featured_comment:
         title: Featured comment
   errors:

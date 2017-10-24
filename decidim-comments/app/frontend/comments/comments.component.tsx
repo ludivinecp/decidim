@@ -18,6 +18,7 @@ interface CommentsProps extends GetCommentsQuery {
   loading?: boolean;
   orderBy: string;
   reorderComments: (orderBy: string) => void;
+  commentableType: string;
 }
 
 /**
@@ -37,13 +38,13 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments }, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { comments }, commentableType, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
-    let commentHeader = I18n.t("components.comments.title", { count: comments.length });
+    let commentHeader = I18n.t("components.comments.title", { count: comments.length, comments_name: this._commentsName() });
 
     if (loading) {
       commentClasses += " loading-comments";
-      commentHeader = I18n.t("components.comments.loading");
+      commentHeader = I18n.t("components.comments.loading", { comments_name: this._commentsName() });
     }
 
     return (
@@ -77,12 +78,28 @@ export class Comments extends React.Component<CommentsProps> {
     if (!acceptsNewComments) {
       return (
         <div className="callout warning">
-          <p>{I18n.t("components.comments.blocked_comments_warning")}</p>
+          <p>
+            {I18n.t("components.comments.blocked_comments_warning", { comments_name: this._commentsName() })}
+          </p>
         </div>
       );
     }
 
     return null;
+  }
+
+  /**
+   * The object name for this collection of comments, which can be
+   * configurable per commentable via I18n
+   * @private
+   * @returns {String} - A string with the translated object name
+   */
+  private _commentsName() {
+    const { commentableType } = this.props;
+
+    let commentKey = commentableType.replace(/::/g, "/").replace(/([a-z])([A-Z])/g, "$1_$2").toLowerCase();
+
+    return I18n.t(`components.comments.${commentKey}.comments_name`);
   }
 
   /**
