@@ -17,6 +17,10 @@ module Decidim
         property :accepts_new_comments?
       end
 
+      field :allowsSortingComments, !types.Boolean, "Whether the object allows sorting its comments or not" do
+        property :allows_sorting_comments?
+      end
+
       field :commentsHaveAlignment, !types.Boolean, "Whether the object comments have alignment or not" do
         property :comments_have_alignment?
       end

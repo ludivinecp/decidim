@@ -38,7 +38,7 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments }, commentableType, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { comments }, commentableType, loading } = this.props;
     let commentClasses = "comments";
     let commentHeader = I18n.t("components.comments.title", { count: comments.length, comments_name: this._commentsName() });
 
@@ -54,10 +54,7 @@ export class Comments extends React.Component<CommentsProps> {
             <h2 className="order-by__text section-heading">
               {commentHeader}
             </h2>
-            <CommentOrderSelector
-              reorderComments={reorderComments}
-              defaultOrderBy={orderBy}
-            />
+            {this._renderCommentsOrderSelector()}
           </div>
           {this._renderBlockedCommentsWarning()}
           {this._renderCommentThreads()}
@@ -66,6 +63,27 @@ export class Comments extends React.Component<CommentsProps> {
       </div>
     );
   }
+
+  /**
+   * Renders an order selector for the comment thread
+   * @private
+   * @returns {Void|DOMElement} - An order selector or nothing.
+   */
+  private _renderCommentsOrderSelector() {
+    const { commentable: { allowsSortingComments }, reorderComments, orderBy } = this.props;
+
+    if (allowsSortingComments) {
+      return (
+        <CommentOrderSelector
+          reorderComments={reorderComments}
+          defaultOrderBy={orderBy}
+        />
+      );
+    }
+
+    return null;
+  }
+
 
   /**
    * Renders a warning message if the commentable doesn't accept new comments.

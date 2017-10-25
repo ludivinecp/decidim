@@ -10,8 +10,24 @@ module Decidim
       def comments_for(resource)
         return unless resource.commentable?
         content_for :expanded do
-          inline_comments_for(resource)
+          inline_comments_as_public_discussion_for(resource)
         end
+      end
+
+      def messages_for(resource)
+        return unless resource.commentable?
+
+        content_for :expanded do
+          inline_comments_for_as_private_conversation_for(resource)
+        end
+      end
+
+      def inline_comments_as_public_discussion_for(resource)
+        inline_comments_for(resource, allow_sorting: true)
+      end
+
+      def inline_comments_as_private_conversation_for(resource)
+        inline_comments_for(resource, allow_sorting: false)
       end
 
       # Creates a Comments component which is rendered using `ReactDOM`
@@ -19,14 +35,15 @@ module Decidim
       # resource - A commentable resource
       #
       # Returns a div which contain a RectComponent
-      def inline_comments_for(resource)
+      def inline_comments_for(resource, allow_sorting: true)
         return unless resource.commentable?
         commentable_type = resource.commentable_type
         commentable_id = resource.id.to_s
         node_id = "comments-for-#{commentable_type.demodulize}-#{commentable_id}"
         react_comments_component(node_id, commentableType: commentable_type,
                                           commentableId: commentable_id,
-                                          locale: I18n.locale)
+                                          locale: I18n.locale,
+                                          allowSorting: allow_sorting)
       end
 
       # Private: Render Comments component using inline javascript
@@ -42,7 +59,8 @@ module Decidim
               {
                 commentableType: "#{props[:commentableType]}",
                 commentableId: "#{props[:commentableId]}",
-                locale: "#{props[:locale]}"
+                locale: "#{props[:locale]}",
+                allowSorting: "#{props[:allowSorting]}"
               }
             );
           })

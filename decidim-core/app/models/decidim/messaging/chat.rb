@@ -13,6 +13,10 @@ module Decidim
         0
       end
 
+      def allows_sorting_comments?
+        false
+      end
+
       has_many :participations, foreign_key: :decidim_chat_id, class_name: "Decidim::Messaging::Participation"
       has_many :interlocutors, through: :participations
     end

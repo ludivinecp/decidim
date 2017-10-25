@@ -32,6 +32,11 @@ module Decidim
         depth < commentable.max_depth
       end
 
+      # Public: Override Commentable concern method `accepts_new_comments?`
+      def allows_sorting_comments?
+        true
+      end
+
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       delegate :users_to_notify_on_comment_created, to: :root_commentable
 

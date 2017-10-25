@@ -53,6 +53,8 @@ export type addCommentMutation = {
       ),
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -105,6 +107,8 @@ export type addCommentMutation = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment
@@ -157,6 +161,8 @@ export type addCommentMutation = {
           hasComments: boolean,
           // Whether the object can have new comments or not
           acceptsNewComments: boolean,
+          // Whether the object allows sorting its comments or not
+          allowsSortingComments: boolean,
           // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
           alignment: number | null,
           // Check if the current user has reported the comment
@@ -209,6 +215,8 @@ export type addCommentMutation = {
             hasComments: boolean,
             // Whether the object can have new comments or not
             acceptsNewComments: boolean,
+            // Whether the object allows sorting its comments or not
+            allowsSortingComments: boolean,
             // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
             alignment: number | null,
             // Check if the current user has reported the comment
@@ -275,6 +283,8 @@ export type DownVoteMutation = {
       hasComments: boolean,
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -327,6 +337,8 @@ export type DownVoteMutation = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment
@@ -379,6 +391,8 @@ export type DownVoteMutation = {
           hasComments: boolean,
           // Whether the object can have new comments or not
           acceptsNewComments: boolean,
+          // Whether the object allows sorting its comments or not
+          allowsSortingComments: boolean,
           // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
           alignment: number | null,
           // Check if the current user has reported the comment
@@ -431,6 +445,8 @@ export type DownVoteMutation = {
             hasComments: boolean,
             // Whether the object can have new comments or not
             acceptsNewComments: boolean,
+            // Whether the object allows sorting its comments or not
+            allowsSortingComments: boolean,
             // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
             alignment: number | null,
             // Check if the current user has reported the comment
@@ -497,6 +513,8 @@ export type UpVoteMutation = {
       hasComments: boolean,
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -549,6 +567,8 @@ export type UpVoteMutation = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment
@@ -601,6 +621,8 @@ export type UpVoteMutation = {
           hasComments: boolean,
           // Whether the object can have new comments or not
           acceptsNewComments: boolean,
+          // Whether the object allows sorting its comments or not
+          allowsSortingComments: boolean,
           // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
           alignment: number | null,
           // Check if the current user has reported the comment
@@ -653,6 +675,8 @@ export type UpVoteMutation = {
             hasComments: boolean,
             // Whether the object can have new comments or not
             acceptsNewComments: boolean,
+            // Whether the object allows sorting its comments or not
+            allowsSortingComments: boolean,
             // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
             alignment: number | null,
             // Check if the current user has reported the comment
@@ -701,6 +725,8 @@ export type GetCommentsQuery = {
   commentable:  {
     // Whether the object can have new comments or not
     acceptsNewComments: boolean,
+    // Whether the object allows sorting its comments or not
+    allowsSortingComments: boolean,
     // Whether the object comments have alignment or not
     commentsHaveAlignment: boolean,
     // Whether the object comments have votes or not
@@ -745,6 +771,8 @@ export type GetCommentsQuery = {
       ),
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -797,6 +825,8 @@ export type GetCommentsQuery = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment
@@ -849,6 +879,8 @@ export type GetCommentsQuery = {
           hasComments: boolean,
           // Whether the object can have new comments or not
           acceptsNewComments: boolean,
+          // Whether the object allows sorting its comments or not
+          allowsSortingComments: boolean,
           // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
           alignment: number | null,
           // Check if the current user has reported the comment
@@ -901,6 +933,8 @@ export type GetCommentsQuery = {
             hasComments: boolean,
             // Whether the object can have new comments or not
             acceptsNewComments: boolean,
+            // Whether the object allows sorting its comments or not
+            allowsSortingComments: boolean,
             // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
             alignment: number | null,
             // Check if the current user has reported the comment
@@ -981,6 +1015,8 @@ export type CommentFragment = {
   hasComments: boolean,
   // Whether the object can have new comments or not
   acceptsNewComments: boolean,
+  // Whether the object allows sorting its comments or not
+  allowsSortingComments: boolean,
   // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
   alignment: number | null,
   // Check if the current user has reported the comment
@@ -1033,6 +1069,8 @@ export type CommentFragment = {
     hasComments: boolean,
     // Whether the object can have new comments or not
     acceptsNewComments: boolean,
+    // Whether the object allows sorting its comments or not
+    allowsSortingComments: boolean,
     // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
     alignment: number | null,
     // Check if the current user has reported the comment
@@ -1085,6 +1123,8 @@ export type CommentFragment = {
       hasComments: boolean,
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -1137,6 +1177,8 @@ export type CommentFragment = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment
@@ -1194,6 +1236,8 @@ export type CommentDataFragment = {
   hasComments: boolean,
   // Whether the object can have new comments or not
   acceptsNewComments: boolean,
+  // Whether the object allows sorting its comments or not
+  allowsSortingComments: boolean,
   // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
   alignment: number | null,
   // Check if the current user has reported the comment
@@ -1248,6 +1292,8 @@ export type CommentThreadFragment = {
   ),
   // Whether the object can have new comments or not
   acceptsNewComments: boolean,
+  // Whether the object allows sorting its comments or not
+  allowsSortingComments: boolean,
   // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
   alignment: number | null,
   // Check if the current user has reported the comment
@@ -1300,6 +1346,8 @@ export type CommentThreadFragment = {
     hasComments: boolean,
     // Whether the object can have new comments or not
     acceptsNewComments: boolean,
+    // Whether the object allows sorting its comments or not
+    allowsSortingComments: boolean,
     // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
     alignment: number | null,
     // Check if the current user has reported the comment
@@ -1352,6 +1400,8 @@ export type CommentThreadFragment = {
       hasComments: boolean,
       // Whether the object can have new comments or not
       acceptsNewComments: boolean,
+      // Whether the object allows sorting its comments or not
+      allowsSortingComments: boolean,
       // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
       alignment: number | null,
       // Check if the current user has reported the comment
@@ -1404,6 +1454,8 @@ export type CommentThreadFragment = {
         hasComments: boolean,
         // Whether the object can have new comments or not
         acceptsNewComments: boolean,
+        // Whether the object allows sorting its comments or not
+        allowsSortingComments: boolean,
         // The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'
         alignment: number | null,
         // Check if the current user has reported the comment

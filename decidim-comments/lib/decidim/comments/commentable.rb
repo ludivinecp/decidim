@@ -27,6 +27,11 @@ module Decidim
           true
         end
 
+        # Public: Whether the object's comments can be sorted or not.
+        def allows_sorting_comments?
+          true
+        end
+
         # Public: Whether the object can have new comments or not.
         def accepts_new_comments?
           true

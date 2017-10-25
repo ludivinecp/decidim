@@ -55,6 +55,14 @@ module Decidim
         end
       end
 
+      describe "allowsSortingComments" do
+        let(:query) { "{ allowsSortingComments }" }
+
+        it "returns the return value of allows_sorting_comments? method" do
+          expect(response).to include("allowsSortingComments" => model.allows_sorting_comments?)
+        end
+      end
+
       describe "comments" do
         let!(:random_comment) { FactoryGirl.create(:comment) }
         let!(:replies) { Array.new(3) { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.current - n.days) } }

@@ -19,6 +19,14 @@ module Decidim
         end
       end
 
+      describe "allowsSortingComments" do
+        let(:query) { "{ allowsSortingComments }" }
+
+        it "returns the 'allows_sorting_comments?' method value" do
+          expect(response).to include("allowsSortingComments" => model.allows_sorting_comments?)
+        end
+      end
+
       describe "commentsHaveAlignment" do
         let(:query) { "{ commentsHaveAlignment }" }
 
